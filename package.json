@@ -1,0 +1,29 @@
+{
+  "name": "Sole to Soul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coevpen/e-commerce_shoes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coevpen/e-commerce_shoes/issues"
+  },
+  "homepage": "https://github.com/coevpen/e-commerce_shoes#readme",
+  "dependencies": {
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.28.0"
+  }
+}

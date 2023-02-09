@@ -1,0 +1,1 @@
+// this file will connect the database  using dotenv and sequelize
