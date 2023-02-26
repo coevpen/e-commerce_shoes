@@ -12,6 +12,15 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+.card-container{
+  text-decoration: none;
+  color: black;
+}
+.card-container:hover{
+  color: black;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
