@@ -12,10 +12,10 @@ Brand.init(
             primaryKey: true,
             autoIncrement: true
           },
-          brand_name: {
+        brand_name: {
             type: DataTypes.STRING,
             allowNull: false
-          }
+        }
     },
     {
         sequelize,
