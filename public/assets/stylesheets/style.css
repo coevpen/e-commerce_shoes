@@ -707,9 +707,7 @@ progress {
   flex: 0 0 auto;
   width: 100%;
 }
-.box{
-  grid-column: 1 / 5;
-}
+
 .row-cols-2 > * {
   flex: 0 0 auto;
   width: 50%;
@@ -905,10 +903,6 @@ progress {
 }
 
 @media (min-width: 576px) {
-  .box{
-    grid-column:1 / 5;
-  }
-
   .col-sm {
     flex: 1 0 0%;
   }
@@ -1122,10 +1116,6 @@ progress {
   }
 }
 @media (min-width: 768px) {
-  .box{
-    grid-column: 1 / 5;
-  }
-
   .col-md {
     flex: 1 0 0%;
   }
@@ -1339,10 +1329,6 @@ progress {
   }
 }
 @media (min-width: 992px) {
-  .box{
-    grid-column: 2 / 5;
-  }
-  
   .col-lg {
     flex: 1 0 0%;
   }
@@ -1556,9 +1542,6 @@ progress {
   }
 }
 @media (min-width: 1200px) {
-  .box{
-    grid-column: 2 / 5;
-  }
   .col-xl {
     flex: 1 0 0%;
   }
@@ -4539,7 +4522,7 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width:100px;
+  min-width: 100px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
