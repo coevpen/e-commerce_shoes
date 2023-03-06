@@ -1,6 +1,6 @@
 // database models
 const Product = require(`./Product`);
-const Brand = require(`./Brand`);
+const Brand = require(`./Brands`);
 const Category = require(`./Category`);
 const Customer = require(`./Customer`);
 const Order = require(`./Order`);
@@ -8,7 +8,7 @@ const ProductOrder = require(`./ProductOrder`);
 
 // associations
 Customer.hasMany(Order, {
-    foreignKey: 'customer_id'
+    foreignKey: 'order_id'
 });
 
 Order.belongsTo(Customer,{
@@ -25,6 +25,18 @@ Product.belongsToMany(Order, {
     foreignKey: 'product_id'
 });
 
-Category
+Category.hasMany(Product,{
+    foreignKey: 'category_id'
+});
 
-Brand
+Product.belongsTo(Category, {
+    foreignKey: 'category_id'
+});
+
+Brand.hasMany(Product, {
+    foreignKey: 'brand_id'
+});
+
+Product.belongsTo(Brand, {
+    foreignKey: 'brand_id'
+});
