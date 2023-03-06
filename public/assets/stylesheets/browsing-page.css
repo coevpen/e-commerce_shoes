@@ -17,12 +17,13 @@
 }
 
 .browse-page-filter section{
-  height: 500px;
+  height: max-content;
   border-radius: 10px;
   border: 1px solid grey;
   padding: 15px;
   margin: 0px 15px;
   width: 270px;
+  justify-content: center;
 }
 
 .pagination-bar *{
@@ -56,4 +57,12 @@
   .card-box{
     grid-column: 2 / 5;
   }
+}
+
+.filter-button-container{
+  width: 100%;
+  justify-content: space-between;
+}
+.filter-button-container button{
+  margin: 1rem;
 }
