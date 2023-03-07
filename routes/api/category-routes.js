@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Category.findAll({
     include: {
       model: Category,
-      attributes: ['id', 'category_name']
+      attributes: [ 'id', 'category_name' ]
     }
   })
   .then(categoryInfo => {
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
     },
     include: {
       model: Category,
-      attributes: ['id', 'category_name']
+      attributes: [ 'id', 'category_name' ]
     }
   })
   .then(categoryInfo => {
