@@ -13,10 +13,10 @@ router.get('/', (req, res) => {
   })
   .then(customerInfo => {
     if(!customerInfo){
-      res.status(404).json({ message: 'No categories found. '});
+      res.status(404).json({ message: 'No customers found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(customerInfo);
   })
   .catch(err => {
     console.log(err);
