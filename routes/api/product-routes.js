@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const { Brands, Category, Customer, Order, Product, ProductOrder } = require('../../models');
+const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../../models');
 
-// The `/api/categories` endpoint
+// The `/api/products` endpoint found in index.js
 
 router.get('/', (req, res) => {
-  // find all categories
-  Category.findAll({
+  // find all products
+  Product.findAll({
     include: {
       model: Product,
       attributes: [ 'id', 'product_name', 'price', 'brand_id', 'size', 'color', 'image', 'rating', 'category_id', 'stockQTY', 'sexCategory' ]
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No categories found. '});
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(productInfo);
   })
   .catch(err => {
     console.log(err);
@@ -25,8 +25,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  Category.findOne({
+  // find one product by its `id` value
+  Product.findOne({
     where: {
       id: req.params.id
     },
@@ -35,12 +35,12 @@ router.get('/:id', (req, res) => {
       attributes: [ 'id', 'product_name', 'price', 'brand_id', 'size', 'color', 'image', 'rating', 'category_id', 'stockQTY', 'sexCategory' ]
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No categories found. '});
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(productInfo);
   })
   .catch(err => {
     console.log(err);
@@ -49,11 +49,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // create a new category
-  Category.create({
-    category_name: req.body.category_name
+  // create a new product
+  Product.create({
+    product_name: req.body.product_name
   })
-  .then(categoryInfo => res.json(categoryInfo))
+  .then(productInfo => res.json(productInfo))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -61,18 +61,18 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
-  Category.update(req.body, {
+  // update a product by its `id` value
+  Product.update(req.body, {
     where: {
       id: req.params.id
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No category found. '});
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No product found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(productInfo);
   })
   .catch(err => {
     console.log(err);
@@ -81,18 +81,18 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete a category by its `id` value
-  Category.destroy({
+  // delete a product by its `id` value
+  Product.destroy({
     where: {
       id: req.params.id
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No category found. '});
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No product found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(productInfo);
   })
   .catch(err => {
     console.log(err);
