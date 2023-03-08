@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Sole to Soul - SEARCH CRITERIA</title>
+        <title>Sole to Soul - ITEM NAME</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -14,5 +14,107 @@
         <link href="assets/stylesheets/style.css" rel="stylesheet"/>
     </head>
 <body>
-  
+  <!--Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">Sole to Soul</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2-lg-0 ms-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#!">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#!">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
+                        <li>
+                            <a class="dropdown-item" href="#!">Shop for All</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#!">Shop for Men's Shoes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#!">Shop for Women's Shoes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#!">Shop for Children's Shoes</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    Sign In
+                </button>
+            </form>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Product section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" id="product-image" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder" id="product-name-label">PRODUCT NAME</h1>
+                <div class="fs-5 mb-5" id="product-price-label"><span>$40.00</span></div>
+                <p class="lead mb-5" id="product-description-label">Product description here</p>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="SizeSelect">Size</label>
+                    </div>
+                    <select class="custom-select" id="SizeSelect">
+                      <option value="8">8</option>
+                      <option value="8.5">8.5</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="ColorSelect">Color</label>
+                    </div>
+                    <select class="custom-select" id="ColorSelect">
+                      <option value="Black">Black</option>
+                      <option value="White">White</option>
+                    </select>
+                </div>
+                <div class="d-flex mt-5">
+                    <button class="btn btn-outline-dark flex-shrink-0 w-100" type="button">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                    </button>
+                </div>
+                <div class="small my-2" id="product-quantity-label">12 in stock</div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--js for index.html-->
+<script src="assets/javascript/index.js"></script>
+</html>
