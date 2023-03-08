@@ -1,22 +1,22 @@
 const router = require('express').Router();
-const { Brands, Category, Customer, Order, Product, ProductOrder } = require('../../models');
+const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../../models');
 
-// The `/api/categories` endpoint
+// The `/api/orders` endpoint found in index.js
 
 router.get('/', (req, res) => {
-  // find all categories
-  Category.findAll({
+  // find all orders
+  Order.findAll({
     include: {
       model: Order,
       attributes: [ 'id', 'customer_id', 'product_id' ]
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No categories found. '});
+  .then(orderInfo => {
+    if(!orderInfo){
+      res.status(404).json({ message: 'No orders found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(orderInfo);
   })
   .catch(err => {
     console.log(err);
@@ -25,8 +25,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  Category.findOne({
+  // find one order by its `id` value
+  Order.findOne({
     where: {
       id: req.params.id
     },
@@ -35,12 +35,12 @@ router.get('/:id', (req, res) => {
       attributes: [ 'id', 'customer_id', 'product_id' ]
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No categories found. '});
+  .then(orderInfo => {
+    if(!orderInfo){
+      res.status(404).json({ message: 'No orders found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(orderInfo);
   })
   .catch(err => {
     console.log(err);
@@ -49,11 +49,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // create a new category
-  Category.create({
-    category_name: req.body.category_name
+  // create a new order
+  Order.create({
+    order_name: req.body.order_name
   })
-  .then(categoryInfo => res.json(categoryInfo))
+  .then(orderInfo => res.json(orderInfo))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -61,18 +61,18 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
-  Category.update(req.body, {
+  // update a order by its `id` value
+  Order.update(req.body, {
     where: {
       id: req.params.id
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No category found. '});
+  .then(orderInfo => {
+    if(!orderInfo){
+      res.status(404).json({ message: 'No order found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(orderInfo);
   })
   .catch(err => {
     console.log(err);
@@ -82,17 +82,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
-  Category.destroy({
+  Order.destroy({
     where: {
       id: req.params.id
     }
   })
-  .then(categoryInfo => {
-    if(!categoryInfo){
-      res.status(404).json({ message: 'No category found. '});
+  .then(orderInfo => {
+    if(!orderInfo){
+      res.status(404).json({ message: 'No order found. '});
       return;
     }
-    res.json(categoryInfo);
+    res.json(orderInfo);
   })
   .catch(err => {
     console.log(err);
