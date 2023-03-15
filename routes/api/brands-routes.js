@@ -13,8 +13,7 @@ router.get('/', (req, res) => {
   })
   .then(brandInfo => {
     if(!brandInfo){
-      res.status(404).json({ message: 'No 
-                            found. '});
+      res.status(404).json({ message: 'No brands found. '});
       return;
     }
     res.json(brandInfo);
