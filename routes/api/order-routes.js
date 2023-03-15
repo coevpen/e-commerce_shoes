@@ -6,9 +6,10 @@ const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../
 router.get('/', (req, res) => {
   // find all orders
   Order.findAll({
+    attributes: ['id', 'customer_id', 'product_id'],
     include: {
-      model: Order,
-      attributes: [ 'id', 'customer_id', 'product_id' ]
+      model: Customer,
+      attributes: [ 'id', 'first_name', 'last_name', ]
     }
   })
   .then(orderInfo => {
@@ -30,9 +31,10 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    attributes: ['id', 'customer_id', 'product_id'],
     include: {
-      model: Order,
-      attributes: [ 'id', 'customer_id', 'product_id' ]
+      model: Customer,
+      attributes: [ 'id', 'first_name', 'last_name', ]
     }
   })
   .then(orderInfo => {
@@ -51,7 +53,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new order
   Order.create({
-    order_name: req.body.order_name
+    customer_id: req.params.customer_id,
+    product_id: req.params.product_id
   })
   .then(orderInfo => res.json(orderInfo))
   .catch(err => {
@@ -63,6 +66,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a order by its `id` value
   Order.update(req.body, {
+    product_id: req.params.product_id,
     where: {
       id: req.params.id
     }
