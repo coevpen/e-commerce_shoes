@@ -5,7 +5,7 @@ const sequelize = require('./config/connection');
 const app = express();
 const path = require('path');
 const routes = require('./routes');
-//add api routes here
+
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));

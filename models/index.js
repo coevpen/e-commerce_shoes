@@ -40,3 +40,12 @@ Brand.hasMany(Product, {
 Product.belongsTo(Brand, {
     foreignKey: 'brand_id'
 });
+
+module.exports = {
+    Product,
+    Category,
+    Customer,
+    Brand,
+    ProductOrder,
+    Order
+};

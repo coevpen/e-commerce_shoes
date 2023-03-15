@@ -1,23 +1,20 @@
 const router = require('express').Router();
-const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../../models');
+const { Brand, Category, Customer, Order, Product, ProductOrder } = require(`../../models`);
 
 // The `/api/customers` endpoint found in index.js
 
 router.get('/', (req, res) => {
   // find all customers
   Customer.findAll({
-    include: {
-      model: Customer,
-      attributes: {exclude: ['password']}
-    }
+    attributes: {exclude: ['password']}
   })
-  .then(customerInfo => {
-    if(!customerInfo){
-      res.status(404).json({ message: 'No customers found. '});
-      return;
-    }
-    res.json(customerInfo);
-  })
+  .then(function (customerInfo) {
+      if (!customerInfo) {
+        res.status(404).json({ message: 'No customers found. ' });
+        return;
+      }
+      res.json(customerInfo);
+    })
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -31,10 +28,6 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-      model: Customer,
-      attributes: [ 'id', 'first_name', 'last_name', 'email', 'address', 'order_id' ]
-    }
   })
   .then(customerInfo => {
     if(!customerInfo){

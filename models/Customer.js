@@ -22,7 +22,10 @@ Customer.init(
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                isEmail: true
+            }
         },
         password: {
             type: DataTypes.STRING,
@@ -31,9 +34,6 @@ Customer.init(
         address: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isEmail: true
-            }
         },
         order_id: {
             type: DataTypes.INTEGER,
