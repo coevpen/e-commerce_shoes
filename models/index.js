@@ -15,7 +15,7 @@ Order.belongsTo(Customer,{
     foreignKey: 'order_id'
 });
 
-Order.hasMany(Product,{
+Order.belongsToMany(Product,{
     through: ProductOrder,
     foreignKey: 'order_id'
 });
