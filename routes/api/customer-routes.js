@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Customer.findAll({
     include: {
       model: Customer,
-      attributes: [ 'id', 'first_name', 'last_name', 'email', 'address', 'order_id' ]
+      attributes: {exclude: ['password']}
     }
   })
   .then(customerInfo => {
@@ -27,6 +27,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find one customer by its `id` value
   Customer.findOne({
+    attributes: { exclude: ['password']},
     where: {
       id: req.params.id
     },
@@ -51,7 +52,11 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new customer
   Customer.create({
-    customer_name: req.body.customer_name
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    address: req.body.address,
+    password: req.body.password
   })
   .then(customerInfo => res.json(customerInfo))
   .catch(err => {
