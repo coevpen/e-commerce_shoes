@@ -13,6 +13,33 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+
+
+ .cart-x-btn{
+  cursor: pointer;
+ }
+ 
+ .product-cart-section{
+  transition: position 1s 1s 1s;
+ }
+
+ .product-cart-section.btn:active{
+    position: top;
+ }
+
+ .number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+}
+ .test-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ .input-group-append button{
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+ }
+
  .filter-button-container{
     display: flex;
     justify-content: space-evenly;
@@ -3317,6 +3344,14 @@ textarea.form-control-lg {
   border-color: #f8f9fa;
 }
 
+.btn-custom{
+  transition-property: background-color;
+  transition-duration: .2s;
+}
+.btn-custom:hover {
+  background-color: #f1f0f0;
+  border-color:#f1f0f0;
+}
 .btn-dark {
   color: #fff;
   background-color: #212529;
