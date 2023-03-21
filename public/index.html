@@ -15,65 +15,69 @@
     </head>
 <body>
     <!--Navigation Toolbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">Sole to Soul</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div id="navbarSupportedContent" class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2-lg-0 ms-lg-4">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#!">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            Shop
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
-                            <li>
-                                <a class="dropdown-item" href="browsing-page.html">Shop for All</a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="browsing-page.html">Shop for Men's Shoes</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="browsing-page.html">Shop for Children's Shoes</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
-                </form>
-                <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        Sign In
-                    </button>
-                </form>
-                <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        Sign Up
-                    </button>
-                </form>
-            </div>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="index.html" title="Home">Sole to Soul</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2-lg-0 ms-lg-4">
+                <li class="nav-item btn-custom">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item btn-custom">
+                    <a class="nav-link active" aria-current="page" href="#!">About</a>
+                </li>
+                <li class="nav-item dropdown btn-custom">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
+                        <li>
+                            <a class="dropdown-item" href="browsing-page.html">Shop for All</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="browsing-page.html">Shop for Men's Shoes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="browsing-page.html">Shop for Children's Shoes</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex nav-item">
+                <button class="btn-custom btn" type="button" onclick="window.location.href='cart.html';">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+            <form class="d-flex nav-item navbar-nav">
+                <li class="nav-item dropdown btn-custom btn d-flex p-0">
+                  <a id="navbarDropdown" class="d-flex nav-link dropdown-toggle align-items-center justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <h2 class="m-0 d-flex align-items-center px-1" title="Sign In">
+                        <i class="bi bi-person-circle"></i> </h2>
+                      <a style="display: none;"href="https://www.flaticon.com/free-icons/rabbit" title="rabbit icons">Rabbit icons created by Freepik - Flaticon</a>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
+                      <li>
+                          <a class="dropdown-item" href="login.html" target="_parent">Sign Up</a>
+                      </li>
+                  </ul>
+              </li>
+          </form>
         </div>
-    </nav>
+    </div>
+  </nav>
     <!--Header Banner-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
