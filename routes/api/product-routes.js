@@ -62,16 +62,18 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new product
+  console.log(req);
   Product.create({
     product_name: req.body.product_name,
-    price: req.params.price,
-    brand_id: req.params.brand_id,
-    category_id: req.params.category_id,
-    size: req.params.size,
-    color: req.params.color,
-    image: req.params.image,
-    stockQTY: req.params.stockQTY,
-    sexCategory: req.params.sexCategory
+    price: req.body.price,
+    brand_id: req.body.brand_id,
+    size: req.body.size,
+    color: req.body.color,
+    image: req.body.image,
+    rating: req.body.rating,
+    category_id: req.body.category_id,
+    stockQTY: req.body.stockQTY,
+    sexCategory: req.body.sexCategory
   })
   .then(productInfo => res.json(productInfo))
   .catch(err => {
@@ -83,16 +85,16 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a product by its `id` value
   Product.update(req.body, {
-    product_name: req.params.product_name,
-    price: req.params.price,
-    brand_id: req.params.brand_id,
-    category_id: req.params.category_id,
-    size: req.params.size,
-    color: req.params.color,
-    image: req.params.image,
-    rating: req.params.rating,
-    stockQTY: req.params.stockQTY,
-    sexCategory: req.params.sexCategory,
+    product_name: req.body.product_name,
+    price: req.body.price,
+    brand_id: req.body.brand_id,
+    size: req.body.size,
+    color: req.body.color,
+    image: req.body.image,
+    rating: req.body.rating,
+    category_id: req.body.category_id,
+    stockQTY: req.body.stockQTY,
+    sexCategory: req.body.sexCategory,
     where: {
       id: req.params.id
     }

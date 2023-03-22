@@ -12,7 +12,7 @@ Customer.hasMany(Order, {
 });
 
 Order.belongsTo(Customer,{
-    foreignKey: 'order_id'
+    foreignKey: 'customer_id'
 });
 
 Order.belongsToMany(Product,{

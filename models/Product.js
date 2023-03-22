@@ -61,6 +61,7 @@ Product.init(
         stockQTY: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            defaultValue: 1,
             Min: 0,
             validate: {
                 isNumeric: true
