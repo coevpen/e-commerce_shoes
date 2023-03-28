@@ -5,16 +5,10 @@ const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../
 
 router.get('/', (req, res) => {
   // find all brands
-  Brand.findAll({
-    include: {
-      model: Brand,
-      attributes: [ 'id', 'brand_name' ]
-    }
-  })
+  Brand.findAll()
   .then(brandInfo => {
     if(!brandInfo){
-      res.status(404).json({ message: 'No 
-                            found. '});
+      res.status(404).json({ message: 'No brands found. '});
       return;
     }
     res.json(brandInfo);
@@ -30,10 +24,6 @@ router.get('/:id', (req, res) => {
   Brand.findOne({
     where: {
       id: req.params.id
-    },
-    include: {
-      model: Brand,
-      attributes: [ 'id', 'brand_name' ]
     }
   })
   .then(brandInfo => {

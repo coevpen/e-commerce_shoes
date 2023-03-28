@@ -6,10 +6,16 @@ const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../
 router.get('/', (req, res) => {
   // find all products
   Product.findAll({
-    include: {
-      model: Product,
-      attributes: [ 'id', 'product_name', 'price', 'brand_id', 'size', 'color', 'image', 'rating', 'category_id', 'stockQTY', 'sexCategory' ]
+    include: [
+    {
+      model: Category,
+      attributes: [ 'category_name' ]
+    },
+    {
+      model: Brand,
+      attributes: ['brand_name']
     }
+  ]
   })
   .then(productInfo => {
     if(!productInfo){
@@ -30,10 +36,16 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-      model: Product,
-      attributes: [ 'id', 'product_name', 'price', 'brand_id', 'size', 'color', 'image', 'rating', 'category_id', 'stockQTY', 'sexCategory' ]
-    }
+    include: [
+      {
+        model: Category,
+        attributes: [ 'category_name' ]
+      },
+      {
+        model: Brand,
+        attributes: ['brand_name']
+      }
+    ]
   })
   .then(productInfo => {
     if(!productInfo){
@@ -50,8 +62,18 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new product
+  console.log(req);
   Product.create({
-    product_name: req.body.product_name
+    product_name: req.body.product_name,
+    price: req.body.price,
+    brand_id: req.body.brand_id,
+    size: req.body.size,
+    color: req.body.color,
+    image: req.body.image,
+    rating: req.body.rating,
+    category_id: req.body.category_id,
+    stockQTY: req.body.stockQTY,
+    sexCategory: req.body.sexCategory
   })
   .then(productInfo => res.json(productInfo))
   .catch(err => {
@@ -63,6 +85,16 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   // update a product by its `id` value
   Product.update(req.body, {
+    product_name: req.body.product_name,
+    price: req.body.price,
+    brand_id: req.body.brand_id,
+    size: req.body.size,
+    color: req.body.color,
+    image: req.body.image,
+    rating: req.body.rating,
+    category_id: req.body.category_id,
+    stockQTY: req.body.stockQTY,
+    sexCategory: req.body.sexCategory,
     where: {
       id: req.params.id
     }

@@ -3,3 +3,5 @@ DROP DATABASE IF EXISTS shoes_db;
 
 -- CREATE DATABASE
 CREATE DATABASE shoes_db;
+
+USE shoes_db;

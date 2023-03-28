@@ -1,8 +1,11 @@
 // starts the app
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const express = require('express');
+const sequelize = require('./config/connection');
 const app = express();
-//add api routes here
+const path = require('path');
+const routes = require('./routes');
+
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -11,8 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // gets all the files for front end index.html
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(PORT, () => {
-    console.log(`API server now on ${PORT}!`);
+app.use(routes);
+
+sequelize.sync({force: false}).then(()=>{
+    app.listen(PORT, () => console.log(`API server now on ${PORT}!`));
 });
