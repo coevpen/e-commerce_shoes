@@ -5,12 +5,7 @@ const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../
 
 router.get('/', (req, res) => {
   // find all categories
-  Category.findAll({
-    include: {
-      model: Category,
-      attributes: [ 'id', 'category_name' ]
-    }
-  })
+  Category.findAll()
   .then(categoryInfo => {
     if(!categoryInfo){
       res.status(404).json({ message: 'No categories found. '});
@@ -29,10 +24,6 @@ router.get('/:id', (req, res) => {
   Category.findOne({
     where: {
       id: req.params.id
-    },
-    include: {
-      model: Category,
-      attributes: [ 'id', 'category_name' ]
     }
   })
   .then(categoryInfo => {

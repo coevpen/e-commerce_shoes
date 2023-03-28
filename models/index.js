@@ -12,10 +12,10 @@ Customer.hasMany(Order, {
 });
 
 Order.belongsTo(Customer,{
-    foreignKey: 'order_id'
+    foreignKey: 'customer_id'
 });
 
-Order.hasMany(Product,{
+Order.belongsToMany(Product,{
     through: ProductOrder,
     foreignKey: 'order_id'
 });
@@ -40,3 +40,12 @@ Brand.hasMany(Product, {
 Product.belongsTo(Brand, {
     foreignKey: 'brand_id'
 });
+
+module.exports = {
+    Product,
+    Category,
+    Customer,
+    Brand,
+    ProductOrder,
+    Order
+};
