@@ -6,7 +6,6 @@ const app = express();
 const path = require('path');
 const routes = require('./routes');
 
-
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,3 +20,5 @@ app.use(routes);
 sequelize.sync({force: false}).then(()=>{
     app.listen(PORT, () => console.log(`API server now on ${PORT}!`));
 });
+
+
