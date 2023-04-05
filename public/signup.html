@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Sole to Soul - Login</title>
+        <title>Sole to Soul - Sign Up</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -81,7 +81,7 @@
             <div class="container px-3 px-lg-2 my-2">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Welcome to Sole to Soul</h1>
-                    <h3 class="display-7 fw-normal ">Log in to your account.</h3>
+                    <h3 class="display-7 fw-normal ">Create an account.</h3>
                 <p class="lead fw-normal text-white-50 mb-0"></p>
                 </div>
             </div>
@@ -90,47 +90,45 @@
         <section class="py-5">
             <div class="conatiner px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <!--Sign In-->
-                    <div class="col mb-1">
-                        <h4 class="text-center"><b>Log In</b></h4>
-                        <div class="card h-90">
-                            <div class="card-body">
-                                <p>Email:</p>
-                                <input class="form w-100" type="text" name="si_email" id="si_emailID">
-                                <p id="si_emailHelp" style="color:red"></p>
-                                <p>Password:</p>
-                                <input class="form w-100" type="text" name="si_psswrd" id="si_psswrdID">
-                                <p id="si_psswrdHelp" style="color:red"></p>
-                                <form class="d-flex justify-content-center">
-                                    <button class="btn btn-outline-dark" type="submit"
-                                            onclick="si_valid()">
-                                        Log In
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <p>Don't have an account? <a href="signup.html"><b>Create an account.</b></a></p>
-                    </div>
-                    <!-- Sign Up
+                    <!-- Sign Up -->
                     <div class="col mb-1">
                         <h4 class="text-center"><b>Sign Up</b></h4>
                         <div class="card h-90">
                             <div class="card-body">
-                                <p>Create Username:</p>
-                                <input class="form w-100" type="text" name="su_usrname" id="su_usrnameID">
-                                <p id="su_usrnameHelp" style="color:red"></p>
-                                <p>Create Password:</p>
-                                <input class="form w-100" type="text" name="su_psswrd" id="su_psswrdID">
-                                <p id="su_psswrdHelp" style="color:red"></p>
+                                <!-- First Name -->
+                                <p>Enter First Name:</p>
+                                <input class="form w-100" type="text" name="fname" id="fnameID">
+                                <p id="fnameHelp" style="color:red"></p>
+                                <!-- Last Name -->
+                                <p>Enter Last Name:</p>
+                                <input class="form w-100" type="text" name="lname" id="lnameID">
+                                <p id="lnameHelp" style="color:red"></p>
+                                <!-- Email -->
+                                <p>Enter Email</p>
+                                <input class = "form w-100" type="text" name="email" id="emailID">
+                                <p id="emailHelp" style="color: red"></p>
+                                <!-- Password -->
+                                <p>Enter Password</p>
+                                <input class="form w-100" type="text" name="psswrd" id="passwrdID">
+                                <p class="psswrdHelp" style="color: red"></p>
+                                <!-- Phone Number -->
+                                <p>Enter Phone Number (xxx-xxx-xxxx)</p>
+                                <input class="form w-100" type="text" name="phnum" id="phnumID">
+                                <p id="phnumHelp" style="color: red"></p>
+                                <!-- Shipping Address -->
+                                <p>Enter Shipping Address</p>
+                                <input class="form w-100" type="text" name="addr" id="addrID">
+                                <p class="addrHelp" style="color: red"></p>
                                 <form class="d-flex justify-content-center">
                                     <button class="btn btn-outline-dark" type="submit" 
-                                            onclick="su_valid(su_usrname, su_unsrnameID, su_psswrd, su_psswrdID)">
+                                            onclick="su_valid()">
                                         Sign Up
                                     </button>
                                 </form>
                             </div>
                         </div>
-                    </div> -->
+                        <p>Already have an account? <a href="login.html"><b>Sign in to your account.</b></a></p>
+                    </div>
                 </div>
         </section>
         <!--Footer at the Bottom-->
