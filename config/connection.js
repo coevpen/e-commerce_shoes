@@ -2,17 +2,22 @@
 //TODO: figure out how to connect with AWS
 
 //require('dotenv').config();
-
+var fs = require('fs');
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('shoes_db', 'admin', 'password123', {
-      // host: 'localhost',
-      dialect: 'mysql',
-      dialectOptions: {
-         decimalNumbers: true,
-      },
       host: 'database-1.ctnc6cjecppj.us-east-2.rds.amazonaws.com',
       port: '3306',
+      logging: console.log,
+      maxConcurrentQueries: 100,
+      dialect: 'mysql',
+      dialectOptions: {
+        ssl:{
+          require: true,
+          rejectUnauthorized: true,
+          ca: fs.readFileSync('./us-east-2-bundle.pem')
+        }
+      },
 });
 
 module.exports = sequelize;
