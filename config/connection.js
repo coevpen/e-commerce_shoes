@@ -5,7 +5,7 @@
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(shoes_db, admin, password123 {
+const sequelize = new Sequelize('shoes_db', 'admin', 'password123', {
       // host: 'localhost',
       dialect: 'mysql',
       dialectOptions: {
@@ -13,9 +13,6 @@ const sequelize = new Sequelize(shoes_db, admin, password123 {
       },
       host: 'database-1.ctnc6cjecppj.us-east-2.rds.amazonaws.com',
       port: '3306',
-      user: 'admin',
-      password: 'password123',
-      database: 'shoes_db'
 });
 
 module.exports = sequelize;
