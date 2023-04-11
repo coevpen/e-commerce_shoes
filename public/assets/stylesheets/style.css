@@ -4708,6 +4708,18 @@ textarea.form-control-lg {
   margin-left: -0.5rem;
 }
 
+.card-img{
+  object-fit:contain;
+  float: left;
+  width: 200px;
+  height: 100%;
+}
+
+.card-img-top{
+  width: 200px;
+  height: 150%;
+}
+
 .card-img-overlay {
   position: absolute;
   top: 0;

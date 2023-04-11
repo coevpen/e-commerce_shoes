@@ -66,3 +66,16 @@
 .filter-button-container button{
   margin: 1rem;
 }
+
+.product-name-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1.5em;        /* fallback */
+  max-height: 3em;       /* fallback */
+}
+.card{
+  
+}
