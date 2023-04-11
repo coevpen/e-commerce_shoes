@@ -12,4 +12,16 @@ function login_valid(bttnValue) {
     var emailmsg;
     var passwrdmsg;
 
+    // Email
+    if (!(email.match(emailPattern))) {
+        emailmsg = "Invalid email. Please try again.";
+        document.getElementById("emailHelp").innerHTML = emailmsg;
+    }
+
+    // Password
+    if (!(passwrd.match(passwrdPattern))) {
+        passwrdmsg = "Invalid password. Please try again (Minimum of 8 characters, at least one uppercase letter, one lowercase letter, and one number.";
+        document.getElementById("passwrdHelp").innerHTML = passwrdmsg;
+    }
+
 }
