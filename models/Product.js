@@ -42,7 +42,7 @@ Product.init(
             type: DataTypes.INTEGER,
             allowNull: true,
             Min: 0,
-            Max: 5,
+            Max: 100,
             validate: {
                 isNumeric: true
             }
