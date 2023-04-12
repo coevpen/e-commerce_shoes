@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Product,
-        attributes: ['product_name', 'price', 'image']
+        attributes: ['product_name', 'price', 'image'],
       }
     ]
   })
@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
   // create a new order
   Order.create({
     customer_id: req.body.customer_id,
-    product_id: req.body.product_id
+    product_id
   })
   .then(orderInfo => res.json(orderInfo))
   .catch(err => {

@@ -33,7 +33,7 @@ Customer.init(
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         order_id: {
             type: DataTypes.INTEGER,
