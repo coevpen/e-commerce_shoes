@@ -136,7 +136,7 @@ const productData = [
     {
         "product_name": "Vans Asher Slip-On Skate Shoes Red",
         "price": 59.99,
-        "brand_id": 10,
+        "brand_id": 11,
         "color": "Red",
         "image": "14.webp",
         "rating": 0,
@@ -158,7 +158,7 @@ const productData = [
     {
         "product_name": "American Glamour BadgleyM Xandra Special Occasion Shoes Gold",
         "price": 49.99,
-        "brand_id": 9,
+        "brand_id": 10,
         "color": "Gold",
         "image": "16.webp",
         "rating": 0,
@@ -169,7 +169,7 @@ const productData = [
     {
         "product_name": "Y-Not Ariel Pumps Black",
         "price": 49.99,
-        "brand_id": 8,
+        "brand_id": 9,
         "color": "Gold",
         "image": "17.webp",
         "rating": 0,
@@ -202,7 +202,7 @@ const productData = [
     {
         "product_name": "Y-Not Deluxe Heeled Booties",
         "price": 49.99,
-        "brand_id": 8,
+        "brand_id": 9,
         "color": "Brown",
         "image": "20.webp",
         "rating": 0,
@@ -213,7 +213,7 @@ const productData = [
     {
         "product_name": "Makalu Rochelle Winter Boots",
         "price": 49.99,
-        "brand_id": 11,
+        "brand_id": 12,
         "color": "Brown",
         "image": "21.webp",
         "rating": 0,
@@ -246,7 +246,7 @@ const productData = [
     {
         "product_name": "Skechers Bosnia 64152 Flip-Flops Brown",
         "price": 49.99,
-        "brand_id": 12,
+        "brand_id": 13,
         "color": "Brown",
         "image": "24.webp",
         "rating": 0,
