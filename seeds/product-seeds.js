@@ -41,7 +41,7 @@ const productData = [
         "color": "Pink",
         "image": "5.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "female"
     },
@@ -96,7 +96,7 @@ const productData = [
         "color": "Black",
         "image": "9.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "male"
     },
@@ -184,7 +184,7 @@ const productData = [
         "color": "Pink",
         "image": "18.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "female"
     },
@@ -195,7 +195,7 @@ const productData = [
         "color": "White",
         "image": "19.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "female"
     },
@@ -228,7 +228,7 @@ const productData = [
         "color": "Black",
         "image": "22.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "male"
     },
@@ -239,7 +239,7 @@ const productData = [
         "color": "Blue",
         "image": "23.webp",
         "rating": 0,
-        "category_id": 0,
+        "category_id": 1,
         "stockQTY": 10,
         "sexCategory": "male"
     },

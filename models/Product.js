@@ -30,10 +30,6 @@ Product.init(
                 key: 'id'
             }
         },
-        size: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         color: {
             type: DataTypes.STRING,
             allowNull: false
@@ -46,7 +42,7 @@ Product.init(
             type: DataTypes.INTEGER,
             allowNull: true,
             Min: 0,
-            Max: 5,
+            Max: 100,
             validate: {
                 isNumeric: true
             }
