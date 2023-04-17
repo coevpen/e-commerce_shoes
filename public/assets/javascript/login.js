@@ -2,7 +2,11 @@
  * --------------------
  * This function will validate the email and passwords through regex
  */
+
 function login_valid(bttnValue) {
+    //this is to change the nav bar. when you finish the function u can move this line wherever it should go.
+    localStorage.setItem("logged_in", "true")
+
     console.log(bttnValue);
     var email = document.getElementById("email").value;
     //console.log("Email: " + email);
