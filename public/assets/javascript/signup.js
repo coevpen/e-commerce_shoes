@@ -3,6 +3,7 @@
  * This function grabs the values inserted by the user and validates them
  * using regex and javascript
  */
+/*
 function signup_valid(bttnValue) {
     console.log(bttnValue);
 
@@ -42,3 +43,38 @@ function signup_valid(bttnValue) {
 
     
 }
+*/
+async function signupFormHandler(event) {
+    event.preventDefault();
+
+    const fname = document.querySelector("fname").value.trim();
+    const lname = document.querySelector("lname").value.trim();
+    const email = document.querySelector("email").value.trim();
+    const passwrd = document.querySelector("passwrd").value.trim();
+    const phnum = document.querySelector("phnum").value.trim();
+    const addr = document.querySelector("addr").value.trim();
+
+    if (fname && lname && email && passwrd && phnum && addr) {
+        const response = await fetch('/api/customers/', {
+            method: 'POST',
+            body: JSON.stringify({
+                fname,
+                lname,
+                email,
+                passwrd,
+                phnum,
+                addr
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        }
+        else {
+            alert(response.statusText);
+        }
+    }
+}
+
+document.querySelector('.sign-up').addEventListener('submit', signupFormHandler);

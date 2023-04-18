@@ -88,7 +88,8 @@
     </header>
         <!--Sign in and Sign Up-->
         <section class="py-5">
-            <div class="conatiner px-4 px-lg-5 mt-5">
+            <form class="login">
+            <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <!--Sign In-->
                     <div class="col mb-1">
@@ -96,22 +97,23 @@
                         <div class="card h-90">
                             <div class="card-body">
                                 <p>Email:</p>
-                                <input class="form w-100" type="text" name="email" id="email">
+                                <input class="form w-100" type="text" id="email">
                                 <em id="emailHelp" style="color:red"></em>
                                 <p>Password:</p>
                                 <input class="form w-100" type="text" id="passwrd">
                                 <em id="passwrdHelp" style="color:red "></em>
-                                <form class="d-flex justify-content-center">
-                                    <button class="btn btn-outline-dark" type="button" value="login_button"
-                                            onclick="login_valid(this.value)">
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-outline-dark" type="submit">
                                         Log In
                                     </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <p>Don't have an account? <a href="signup.html"><b>Create an account.</b></a></p>
                     </div>
                 </div>
+            </div>
+            </form>
         </section>
         <!--Footer at the Bottom-->
         <footer class="py-5 bg-dark">
