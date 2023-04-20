@@ -2,7 +2,6 @@
  * --------------------
  * This function will validate the email and passwords through regex
  */
-<<<<<<<<< Temporary merge branch 1
 /*
 =========
 
@@ -33,7 +32,7 @@ function login_valid(bttnValue) {
     }
 
 }
-<<<<<<<<< Temporary merge branch 1
+
 */
 async function loginFormHandler(event) {
     event.preventDefault();
@@ -62,5 +61,3 @@ async function loginFormHandler(event) {
 }
 
 document.querySelector(".login").addEventListener('submit', loginFormHandler);
-=========
->>>>>>>>> Temporary merge branch 2
