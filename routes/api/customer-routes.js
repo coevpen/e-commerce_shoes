@@ -58,6 +58,29 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/login', (req, res) =>{
+
+  Customer.findOne({
+    where:{
+      email: req.body.email
+    }
+  })
+  .then(dbCustomer =>{
+    if(!dbCustomer){
+      res.status(400).json({ message: 'No user with that email'});
+      return;
+    }
+    const validPass = dbCustomer.passwrd;
+
+    if(!validPass){
+      res.status(400).json({ message: 'Password does not match'});
+      return 1;
+    }
+    res.json({customer: dbCustomer, message: 'login successful'});
+  });
+
+});
+
 router.put('/:id', (req, res) => {
   // update a customer by its `id` value
   Customer.update(req.body, {
