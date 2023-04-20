@@ -2,8 +2,14 @@
  * --------------------
  * This function will validate the email and passwords through regex
  */
+
+
+
 /*
+
 function login_valid(bttnValue) {
+    
+
     console.log(bttnValue);
     var email = document.getElementById("email").value;
     //console.log("Email: " + email);
@@ -28,6 +34,8 @@ function login_valid(bttnValue) {
 }
 */
 async function loginFormHandler(event) {
+    //this is to change the nav bar. when you finish the function u can move this line to whenever login is successfully finished.
+    localStorage.setItem("logged_in", "true")
     event.preventDefault();
 
     const email = document.querySelector("email").value.trim();
