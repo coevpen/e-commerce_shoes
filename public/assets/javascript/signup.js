@@ -47,12 +47,12 @@ function signup_valid(bttnValue) {
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const fname = document.querySelector("fname").value.trim();
-    const lname = document.querySelector("lname").value.trim();
-    const email = document.querySelector("email").value.trim();
-    const passwrd = document.querySelector("passwrd").value.trim();
-    const phnum = document.querySelector("phnum").value.trim();
-    const addr = document.querySelector("addr").value.trim();
+    const fname = document.querySelector("#fname").value.trim();
+    const lname = document.querySelector("#lname").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const passwrd = document.querySelector("#passwrd").value.trim();
+    const phnum = document.querySelector("#phnum").value.trim();
+    const addr = document.querySelector("#addr").value.trim();
 
     if (fname && lname && email && passwrd && phnum && addr) {
         const response = await fetch('/api/customers/', {
