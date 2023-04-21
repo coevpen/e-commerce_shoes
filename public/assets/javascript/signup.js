@@ -47,23 +47,22 @@ function signup_valid(bttnValue) {
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const fname = document.querySelector("fname").value.trim();
-    const lname = document.querySelector("lname").value.trim();
-    const email = document.querySelector("email").value.trim();
-    const passwrd = document.querySelector("passwrd").value.trim();
-    const phnum = document.querySelector("phnum").value.trim();
-    const addr = document.querySelector("addr").value.trim();
+    const first_name = document.querySelector("#fname").value.trim();
+    const last_name = document.querySelector("#lname").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const password = document.querySelector("#passwrd").value.trim();
+    const phnum = document.querySelector("#phnum").value.trim();
+    const address = document.querySelector("#addr").value.trim();
 
-    if (fname && lname && email && passwrd && phnum && addr) {
+    if (first_name && last_name && email && password && phnum && address) {
         const response = await fetch('/api/customers/', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
-                fname,
-                lname,
+                first_name,
+                last_name,
                 email,
-                passwrd,
-                phnum,
-                addr
+                password,
+                address
             }),
             headers: { 'Content-Type': 'application/json' }
         });
