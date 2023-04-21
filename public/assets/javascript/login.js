@@ -5,7 +5,6 @@
 
 async function loginFormHandler(event) {
     //this is to change the nav bar. when you finish the function u can move this line to whenever login is successfully finished.
-    localStorage.setItem("logged_in", "true")
     event.preventDefault();
 
     const email = document.querySelector("#email").value.trim();
@@ -23,6 +22,7 @@ async function loginFormHandler(event) {
 
         if (response.ok) {
             document.location.replace('/');
+            localStorage.setItem("logged_in", "true");
         }
         else {
             alert(response.statusText);
