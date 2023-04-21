@@ -38,12 +38,12 @@ async function loginFormHandler(event) {
     localStorage.setItem("logged_in", "true")
     event.preventDefault();
 
-    const email = document.querySelector("email").value.trim();
-    const password = document.querySelector("passwrd").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const password = document.querySelector("#passwrd").value.trim();
 
-    if (username && password) {
-        const response = await fetch('/api/customers/', {
-            method: 'POST',
+    if (email && password) {
+        const response = await fetch('/api/customers/login', {
+            method: 'post',
             body: JSON.stringify({
                 email,
                 password
