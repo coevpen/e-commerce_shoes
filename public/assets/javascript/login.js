@@ -43,7 +43,7 @@ async function loginFormHandler(event) {
 
     if (email && password) {
         const response = await fetch('/api/customers/login', {
-            method: 'POST',
+            method: 'post',
             body: JSON.stringify({
                 email,
                 password

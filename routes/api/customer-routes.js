@@ -70,7 +70,7 @@ router.post('/login', (req, res) =>{
       res.status(400).json({ message: 'No user with that email'});
       return;
     }
-    const validPass = dbCustomer.passwrd;
+    const validPass = dbCustomer.password;
 
     if(!validPass){
       res.status(400).json({ message: 'Password does not match'});
