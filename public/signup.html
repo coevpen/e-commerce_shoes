@@ -46,9 +46,6 @@
                         <li>
                             <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Children's Shoes</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -56,7 +53,7 @@
                 <button class="btn-custom btn" type="button" onclick="window.location.href='cart.html';">
                     <i class="bi-cart-fill me-1"></i>
                     Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    <span id="cart-num" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
             </form>
             <form class="d-flex nav-item navbar-nav">
@@ -88,34 +85,27 @@
                         <div class="card h-90">
                             <div class="card-body">
                                 <!-- First Name -->
-                                <p>Enter First Name:</p>
-                                <input class="form w-100" type="text" id="fname">
+                                Enter First Name:
+                                <input class="form w-100 mb-2" type="text" id="fname">
                                 <!-- Last Name -->
-                                <p>Enter Last Name:</p>
-                                <input class="form w-100" type="text" id="lname">
+                                Enter Last Name:
+                                <input class="form w-100 mb-2" type="text" id="lname">
                                 <!-- Email -->
-                                <p>Enter Email</p>
-                                <input class = "form w-100" type="text" id="email">
-                                <p id="emailHelp" style="color: red"></p>
+                                Enter Email:
+                                <input class = "form w-100 mb-2" type="text" id="email">
+                                <em id="emailHelp" style="color: red"></em>
                                 <!-- Password -->
-                                <p>Enter Password</p>
-                                <input class="form w-100" type="text" id="passwrd">
-                                <p id="passwrdHelp" style="color: red"></p>
-                                <!-- Phone Number -->
-                                <p>Enter Phone Number (xxx-xxx-xxxx)</p>
-                                <input class="form w-100" type="text" id="phnum">
-                                <p id="phnumHelp" style="color: red"></p>
-                                <!-- Shipping Address -->
-                                <p>Enter Shipping Address</p>
-                                <input class="form w-100" type="text" id="addr">
-                                <div class="d-flex justify-content-center">
-                                    <button class="btn btn-outline-dark d-flex justify-content-center" type="submit">
-                                        Sign Up
-                                    </button>
+                                Enter Password:
+                                <input class="form w-100 mb-2" type="text" id="passwrd">
+                                <em id="passwrdHelp" style="color: red"></em>
+                                <div class="mt-1 p-0 d-flex justify-content-center align-items-center">
+                                <button class="btn btn-outline-dark" type="submit">
+                                    Sign Up
+                                </button>
                                 </div>
                             </div>
                         </div>
-                        <p>Already have an account? <a href="login.html"><b>Sign in to your account.</b></a></p>
+                        <p class="mt-1 d-flex justify-content-center">Already have an account? <a href="login.html"><b class="mx-1">Log in</b></a></p>
                     </div>
                 </div>
             </div>
