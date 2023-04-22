@@ -8,6 +8,15 @@
     box.innerHTML = '<a id="navbarDropdown" class="d-flex nav-link dropdown-toggle align-items-center justify-content-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><h2 id="h2-nav" class="m-0 d-flex align-items-center px-1" title="Sign In"><i class="bi bi-person-circle"></i> </h2></a><ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none"><li><a class="dropdown-item" href="login.html" target="_parent">Sign Up</a></li></ul>';
   }
 
+  
+  if(localStorage.getItem("cart")==="null"){
+
+  }
+  else{
+    var t = localStorage.getItem("cart").split(",");
+    document.getElementById("cart-num").innerText=t.length;
+  }
+
 
   function logout(){
     localStorage.setItem("logged_in",false);

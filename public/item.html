@@ -43,9 +43,6 @@
                         <li>
                             <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Children's Shoes</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -53,7 +50,7 @@
                 <button class="btn-custom btn" type="button" onclick="window.location.href='cart.html';">
                     <i class="bi-cart-fill me-1"></i>
                     Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    <span id="cart-num" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
             </form>
             <form class="d-flex nav-item navbar-nav">
@@ -75,19 +72,19 @@
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="SizeSelect">Size</label>
                     </div>
-                    <select class="custom-select" id="SizeSelect">
-                      <option value="8">5</option>
-                      <option value="8">6</option>
-                      <option value="8">7</option>
-                      <option value="8">8</option>
-                      <option value="8.5">9</option>
-                      <option value="8">10</option>
-                      <option value="8">11</option>
+                    <select class="custom-select" id="SizeSelect" required>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
                     </select>
                 </div>
 
                 <div class="d-flex mt-5">
-                    <button class="btn btn-outline-dark flex-shrink-0 w-100" type="button">
+                    <button onclick="addToCart();" class="btn btn-outline-dark flex-shrink-0 w-100" type="button">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart
                     </button>

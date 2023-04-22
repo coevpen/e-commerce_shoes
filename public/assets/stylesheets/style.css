@@ -113,6 +113,7 @@ btn .active:after {
   color: black;
 }
 .card-container:hover{
+  cursor:pointer;
   color: black;
 }
 
