@@ -32,6 +32,11 @@ Order.init(
                 isDecimal: true
             }
         },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            primaryKey: false
+        },
     },
     {
         sequelize,
