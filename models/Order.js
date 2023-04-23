@@ -25,7 +25,13 @@ Order.init(
                 model: 'product',
                 key: 'id'
             }
-        }
+        }, 
+        total: {
+            type: DataTypes.DECIMAL,
+            validate:{
+                isDecimal: true
+            }
+        },
     },
     {
         sequelize,
