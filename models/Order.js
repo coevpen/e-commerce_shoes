@@ -37,6 +37,9 @@ Order.init(
             allowNull: false,
             primaryKey: false
         },
+        discount: {
+            type: DataTypes.STRING(12),
+        } 
     },
     {
         sequelize,
