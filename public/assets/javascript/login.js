@@ -26,7 +26,8 @@ async function loginFormHandler(event) {
         }
         else{
             document.location.replace('/');
-            localStorage.setItem("logged_in", db_response.customer.first_name);
+            localStorage.setItem("logged_in", db_response.customer.id);
+            console.log(localStorage.getItem("logged_in"));
         }
         // if (response.ok) {
         //     document.location.replace('/');

@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
   // create a new order
   Order.create({
     customer_id: req.body.customer_id,
-    product_id
+    product_id: req.body.id
   })
   .then(orderInfo => res.json(orderInfo))
   .catch(err => {
