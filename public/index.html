@@ -45,16 +45,16 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for All</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','all');" href="browsing-page.html">Shop for All</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Men's Shoes</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','men');" href="browsing-page.html">Shop for Men's Shoes</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','women');" href="browsing-page.html">Shop for Women's Shoes</a>
                         </li>
                     </ul>
                 </li>
@@ -87,211 +87,14 @@
         <div class="container px-4 px-lg-5 mt-5">
             <h1>Newest Items</h1>
             <hr>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here shiny product ooooh</h5>
-                                <!--Price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <div class="badge bg-dark text-wjite position-absolute" styel="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here this item's on sale oooh</h5>
-                                <!--Price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $10.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here shiny product ooooh</h5>
-                                <!--Price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here shiny product ooooh</h5>
-                                <!--Price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="newest-shoes" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- cards start here -->
             </div>
         </div>
         <div class="container px-4 px-lg-5 mt-5">
             <h1>Most Popular Items</h1>
             <hr>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here shiny product ooooh</h5>
-                                <!--Price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <div class="badge bg-dark text-wjite position-absolute" styel="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here this item's on sale oooh</h5>
-                                <!--Price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $10.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie a cool product you can buy oooh</h5>
-                                <!--Price-->
-                                $30.00 - $45.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100" title="Product Name">
-                        <!--On Sale-->
-                        <div class="badge bg-dark text-wjite position-absolute" styel="top: 0.5rem; right: 0.5rem">Sale</div>
-                        <!--Image-->
-                        <div class="card-img-top" style="max-height: 450px; max-width: 300px;">
-                            <img class="card-img" id="product-image" src="assets/images/1.webp" alt="..." />
-                        </div>
-                        <!--Details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!--Name-->
-                                <h5 class="fw-bolder product-name-label">Oooh lookie here this item's on sale oooh</h5>
-                                <!--Price-->
-                                <span class="text-muted text-decoration-line-through">$40.00</span>
-                                $20.00
-                            </div>
-                        </div>
-                        <!--Actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto" href="item.html">View</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="popular-shoes" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-3 row-cols-xl-4 justify-content-center">    
             </div>
         </div>
     </section>
@@ -303,7 +106,37 @@
     </footer>
 </body>
 <script>
-    
+    async function getItems(){
+        const response = await fetch('/api/products/')
+        .then(response => response.json())
+        .then(data => db_response = data);
+        console.log(db_response);
+        var t = db_response.slice(db_response.length-4,db_response.length);
+        t = t.reverse();
+        t.forEach(element => {
+            fillPageNew(element);
+        });
+        const response2 = await fetch('/api/products/rating')
+        .then(response2 => response2.json())
+        .then(data => db_response2 = data);
+        console.log(db_response2);
+        var temp = db_response2.slice(0,4);
+        temp.forEach(element => {
+            console.log(element.rating);
+            fillPagePopular(element);
+        }); 
+    }
+    function clickItem(id){
+        localStorage.setItem("id",id);
+        window.location.href="item.html";
+    }
+    async function fillPageNew(item){
+        document.getElementById("newest-shoes").innerHTML+='<div class="col mb-5"><div class="card h-100" title="'+item.product_name+'""><div class="card-img-top" style="max-height: 450px; max-width: 300px;"><img class="card-img" id="product-image" src="'+'assets/images/'+ item.image + '" alt="..." /></div><div class="card-body p-4"><div class="text-center"><h5 class="fw-bolder product-name-label">'+item.product_name+'</h5><span id="product-price">$'+item.price+'</span></div></div><div class="card-footer p-4 pt-0 border-top-0 bg-transparent"><div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="clickItem('+item.id+');">View</a></div></div></div></div>';
+    }
+    async function fillPagePopular(item){
+        document.getElementById("popular-shoes").innerHTML+='<div class="col mb-5"><div class="card h-100" title="'+item.product_name+'""><div class="card-img-top" style="max-height: 450px; max-width: 300px;"><img class="card-img" id="product-image" src="'+'assets/images/'+ item.image + '" alt="..." /></div><div class="card-body p-4"><div class="text-center"><h5 class="fw-bolder product-name-label">'+item.product_name+'</h5><span id="product-price">$'+item.price+'</span></div></div><div class="card-footer p-4 pt-0 border-top-0 bg-transparent"><div class="text-center"><a class="btn btn-outline-dark mt-auto" onclick="clickItem('+item.id+');">View</a></div></div></div></div>';
+    }
+    getItems();
 </script>
 <script src="assets/javascript/nav-bar.js"></script>
 <!--js for bootsrap-->
