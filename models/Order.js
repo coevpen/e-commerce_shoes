@@ -25,7 +25,21 @@ Order.init(
                 model: 'product',
                 key: 'id'
             }
-        }
+        }, 
+        total: {
+            type: DataTypes.DECIMAL,
+            validate:{
+                isDecimal: true
+            }
+        },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            primaryKey: false
+        },
+        discount: {
+            type: DataTypes.STRING(12),
+        } 
     },
     {
         sequelize,
