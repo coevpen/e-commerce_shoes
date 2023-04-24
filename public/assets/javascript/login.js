@@ -4,14 +4,13 @@
  */
 
 async function loginFormHandler(event) {
-    //this is to change the nav bar. when you finish the function u can move this line to whenever login is successfully finished.
-    localStorage.setItem("logged_in", "true")
     event.preventDefault();
 
     const email = document.querySelector("#email").value.trim();
     const password = document.querySelector("#passwrd").value.trim();
 
     if (email && password) {
+        var db_response;
         const response = await fetch('/api/customers/login', {
             method: 'post',
             body: JSON.stringify({
@@ -19,15 +18,24 @@ async function loginFormHandler(event) {
                 password
             }),
             headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
+        })
+        .then(response => response.json())
+        .then(data => db_response=data);
+        if(db_response.customer === undefined){
+            
+        }
+        else{
             document.location.replace('/');
-            localStorage.setItem("logged_in", "true");
+            localStorage.setItem("logged_in", db_response.customer.id);
+            console.log(localStorage.getItem("logged_in"));
         }
-        else {
-            alert(response.statusText);
-        }
+        // if (response.ok) {
+        //     document.location.replace('/');
+        //     localStorage.setItem("logged_in", "true");
+        // }
+        // else {
+        //     alert(response.statusText);
+        // }
     }
 
 }

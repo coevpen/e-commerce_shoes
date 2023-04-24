@@ -35,16 +35,16 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for All</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','all');" href="browsing-page.html">Shop for All</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Men's Shoes</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','men');" href="browsing-page.html">Shop for Men's Shoes</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
+                            <a class="dropdown-item" onclick="localStorage.setItem('category','women');" href="browsing-page.html">Shop for Women's Shoes</a>
                         </li>
                     </ul>
                 </li>
@@ -87,7 +87,7 @@
                                 <input class="form w-100 mb-2 " type="text" id="email">
                                 <em id="emailHelp" style="color:red"></em>
                                 Password:
-                                <input class="form w-100" type="text" id="passwrd">
+                                <input class="form w-100" type="password" id="passwrd">
                                 <em id="passwrdHelp" style="color:red "></em>
                                 <div class="d-flex justify-content-center">
                                     <button class=" mt-3 btn btn-outline-dark" type="submit">

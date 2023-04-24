@@ -33,19 +33,19 @@
                       Shop
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
-                      <li>
-                          <a class="dropdown-item" href="browsing-page.html">Shop for All</a>
-                      </li>
-                      <li>
-                          <hr class="dropdown-divider">
-                      </li>
-                      <li>
-                          <a class="dropdown-item" href="browsing-page.html">Shop for Men's Shoes</a>
-                      </li>
-                      <li>
-                          <a class="dropdown-item" href="browsing-page.html">Shop for Women's Shoes</a>
-                      </li>
-                  </ul>
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','all');" href="browsing-page.html">Shop for All</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','men');" href="browsing-page.html">Shop for Men's Shoes</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','women');" href="browsing-page.html">Shop for Women's Shoes</a>
+                    </li>
+                </ul>
               </li>
           </ul>
           <form class="d-flex nav-item">
@@ -75,25 +75,16 @@
         <p class="mb-0">Full Name</p>
       </div>
       <div class="col-sm-9">
-        <p class="text-muted mb-0">John Doe</p>
+        <p class="text-muted mb-0" id="name"></p>
     </div>
     <hr class="mt-1">
   </div>
-  <div class="row">
-    <div class="col-sm-3">
-      <p class="mb-0">Username</p>
-    </div>
-    <div class="col-sm-9">
-      <p class="text-muted mb-0">username</p>
-  </div>
-  <hr class="mt-1">
-</div>
 <div class="row">
   <div class="col-sm-3">
     <p class="mb-0">Email</p>
   </div>
   <div class="col-sm-9">
-    <p class="text-muted mb-0">email@provider.com</p>
+    <p class="text-muted mb-0" id="email"></p>
 </div>
 <hr class="mt-1">
 </div>
@@ -110,4 +101,17 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/javascript/nav-bar.js"></script>
+<script>
+  async function findCustomer(){
+    var db_response;
+    const response = await fetch('/api/customers/'+localStorage.getItem("logged_in"))
+    .then(response=>response.json())
+    .then(data=>db_response = data);
+    console.log(db_response);
+    document.getElementById("email").innerText=db_response.email;
+    document.getElementById("name").innerText=db_response.first_name + " " + db_response.last_name;
+  }
+  findCustomer();
+
+</script>
 </html>

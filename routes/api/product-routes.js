@@ -3,6 +3,65 @@ const { Brand, Category, Customer, Order, Product, ProductOrder } = require('../
 
 // The `/api/products` endpoint found in index.js
 
+
+router.get('/male', (req, res) => {
+  Product.findAll({
+    where: {
+      sexCategory: "male"
+    },
+    include: [
+      {
+        model: Category,
+        attributes: [ 'category_name' ]
+      },
+      {
+        model: Brand,
+        attributes: ['brand_name']
+      }
+    ]
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.get('/female', (req, res) => {
+  Product.findAll({
+    where: {
+      sexCategory: "female"
+    },
+    include: [
+      {
+        model: Category,
+        attributes: [ 'category_name' ]
+      },
+      {
+        model: Brand,
+        attributes: ['brand_name']
+      }
+    ]
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 router.get('/', (req, res) => {
   // find all products
   Product.findAll({
@@ -15,7 +74,89 @@ router.get('/', (req, res) => {
       model: Brand,
       attributes: ['brand_name']
     }
-  ]
+  ],
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.get('/rating', (req, res) => {
+  // find all products
+  Product.findAll({
+    include: [
+    {
+      model: Category,
+      attributes: [ 'category_name' ]
+    },
+    {
+      model: Brand,
+      attributes: ['brand_name']
+    }
+  ],
+  order:[["rating","DESC"]]
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.get('/price', (req, res) => {
+  Product.findAll({
+    include: [
+    {
+      model: Category,
+      attributes: [ 'category_name' ]
+    },
+    {
+      model: Brand,
+      attributes: ['brand_name']
+    }
+  ],
+  order:[["price","ASC"]]
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.get('/quantity', (req, res) => {
+  Product.findAll({
+    include: [
+    {
+      model: Category,
+      attributes: [ 'category_name' ]
+    },
+    {
+      model: Brand,
+      attributes: ['brand_name']
+    }
+  ],
+  order:[["stockQTY","DESC"]]
   })
   .then(productInfo => {
     if(!productInfo){
