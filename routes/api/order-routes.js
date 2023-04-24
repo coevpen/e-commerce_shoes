@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'customer_id', 'product_id'],
+    attributes: ['id', 'customer_id', 'product_id', 'date'],
     include: [
       {
         model: Customer,
@@ -65,7 +65,8 @@ router.post('/', (req, res) => {
   // create a new order
   Order.create({
     customer_id: req.body.customer_id,
-    product_id: req.body.id
+    product_id: req.body.product_id,
+    date: req.body.date,
   })
   .then(orderInfo => res.json(orderInfo))
   .catch(err => {
@@ -78,6 +79,7 @@ router.put('/:id', (req, res) => {
   // update a order by its `id` value
   Order.update(req.body, {
     product_id: req.body.product_id,
+    discount: req.body.discount,
     where: {
       id: req.params.id
     }

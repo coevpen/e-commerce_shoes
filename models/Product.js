@@ -66,7 +66,8 @@ Product.init(
         sexCategory:{
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        
     },
     {
         sequelize,
