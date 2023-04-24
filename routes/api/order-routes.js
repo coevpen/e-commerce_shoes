@@ -67,6 +67,7 @@ router.post('/', (req, res) => {
     customer_id: req.body.customer_id,
     product_id: req.body.product_id,
     date: req.body.date,
+
   })
   .then(orderInfo => res.json(orderInfo))
   .catch(err => {
