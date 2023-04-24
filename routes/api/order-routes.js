@@ -61,6 +61,37 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.get('/customer/:customer_id', (req, res) => {
+  // find one order by its `customer_id` value
+  Order.findAll({
+    where: {
+      customer_id: req.params.customer_id
+    },
+    attributes: ['id', 'customer_id', 'product_id', 'date'],
+    include: [
+      {
+        model: Customer,
+        attributes: [ 'id', 'first_name', 'last_name', ]
+      },
+      {
+        model: Product,
+        attributes: ['product_name', 'price', 'image']
+      }
+    ]
+  })
+  .then(orderInfo => {
+    if(!orderInfo){
+      res.status(404).json({ message: 'No orders found. '});
+      return;
+    }
+    res.json(orderInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
 router.post('/', (req, res) => {
   // create a new order
   Order.create({

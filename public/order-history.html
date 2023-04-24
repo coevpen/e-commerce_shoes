@@ -82,17 +82,19 @@
 </body>
 <script>
   function fillPage(item){
-    document.getElementById("order-history-cont").innerText+='<div class="row mb-2"><div class="card px-0"><div class="card-header d-flex justify-content-between"><div>Order #'+item.id+'</div><div class="text-end d-inline">'+"Placed on:"+ item.date+'+</div></div><div class="card-body"><div class="col-md-11"><p class="lead fw-normal mb-2 product-name-label">'+item.price+'</p></div></div></div></div></div>';
+    document.getElementById("order-history-cont").innerHTML+='<div class="row mb-2"><div class="card px-0"><div class="card-header d-flex justify-content-between"><div>Order #'+item.id+'</div><div class="text-end d-inline">Placed on '+item.date+'</div></div><div class="card-body"><div class="row d-flex justify-content-center align-items-center product-cart-section" id="product_1_cart"><div class="col-md-11"></div></div></div></div></div>';
   }
   async function getCards(){
     var db_response;
-    const response = await fetch('api/customer/'+localStorage.getItem("logged_in"))
+    const response = await fetch('api/orders/customer/'+localStorage.getItem("logged_in"))
     .then(response=>response.json())
     .then(data=>db_response=data)
     console.log(db_response);
-    
+    db_response.forEach(element => {
+      fillPage(element);
+    });
   }
-  //getCards();
+  getCards();
 </script>
 <script src="assets/javascript/nav-bar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

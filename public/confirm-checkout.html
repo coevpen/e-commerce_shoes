@@ -74,7 +74,6 @@
           
           <form class="card-body" id="checkout-form">
             <h4>Your order has been placed!</h4>
-            <p>Your order number is <strong id="order-number">12345678</strong>.</p>
           </form>
         </div>
       </div>
@@ -120,14 +119,23 @@
 <script>
   document.getElementById("price-products").innerText=localStorage.getItem("price");
   document.getElementById("price-full").innerText=(parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText) +10);
+  var total = Math.round((parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText) +10));
   var x = localStorage.getItem("cart").split(",");
-  x.forEach(async element => {
+  console.log(total);
+  var productids = [];
+  x.forEach(element => {
     var y = element.split("-");
+    productids.push(y[0]);
+  });
+  fillPage(productids);
+  async function fillPage(productids,){
     const response = await fetch('api/orders', {
             method: 'post',
             body: JSON.stringify({
-                'id': y[0],
-                'customer_id':localStorage.getItem("logged_in")
+                'product_id': productids,
+                'customer_id':localStorage.getItem("logged_in"),
+                'total':total,
+                'date': new Date()
             }),
             headers: { 'Content-Type': 'application/json' }
     })
@@ -137,7 +145,7 @@
     else{
       console.log(response.statusText);
     }
-  });
+  }
 
   localStorage.setItem("cart","null");
   localStorage.setItem("price","0");
