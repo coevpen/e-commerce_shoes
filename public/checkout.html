@@ -223,7 +223,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                   Discount
-                  <span>$0.00</span>
+                  <span id="price-discount">$0.00</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 order-last">
                   <div><strong>Total</strong></div>
@@ -244,7 +244,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   document.getElementById("price-products").innerText=localStorage.getItem("price");
-  document.getElementById("price-full").innerText=(parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText));
+  document.getElementById("price-discount").innerText=(parseFloat(document.getElementById("price-products").innerText) * parseFloat(localStorage.getItem("using"))).toFixed(2);
+    document.getElementById("price-full").innerText=((parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText))-parseFloat(document.getElementById("price-discount").innerText)).toFixed(2);
   function checkout(){
   var form = document.querySelector('.needs-validation')
   if (!form.checkValidity()) {
@@ -263,7 +264,8 @@
     price.innerHTML = "$10.00";
     shipping.appendChild(price);
     box.appendChild(shipping);
-    document.getElementById("price-full").innerText=(parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText) +10);
+    document.getElementById("price-discount").innerText=(parseFloat(document.getElementById("price-products").innerText) * parseFloat(localStorage.getItem("using"))).toFixed(2);
+    document.getElementById("price-full").innerText=((parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText)+10)-parseFloat(document.getElementById("price-discount").innerText)).toFixed(2);
 
     btn = document.getElementById("submit-btn");
     btn.innerText = "Place Order";

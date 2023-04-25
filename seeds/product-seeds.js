@@ -170,7 +170,7 @@ const productData = [
         "product_name": "Y-Not Ariel Pumps Black",
         "price": 49.99,
         "brand_id": 10,
-        "color": "Gold",
+        "color": "Black",
         "image": "17.webp",
         "rating": 18,
         "category_id": 3,

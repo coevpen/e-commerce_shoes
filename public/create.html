@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=2, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Sole to Soul - Cart</title>
+        <!-- Favicon-->
+       
+        <!-- Bootstrap icons-->
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="assets/stylesheets/style.css" rel="stylesheet"/>
+    </head>
+<body>
+ <!--Navigation Toolbar-->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="index.html" title="Home">Sole to Soul</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2-lg-0 ms-lg-4">
+              <li class="nav-item btn-custom">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown btn-custom">
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                      Shop
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown" data-bs-popper="none">
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','all');" href="browsing-page.html">Shop for All</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','men');" href="browsing-page.html">Shop for Men's Shoes</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" onclick="localStorage.setItem('category','women');" href="browsing-page.html">Shop for Women's Shoes</a>
+                    </li>
+                </ul>
+              </li>
+          </ul>
+          <form class="d-flex nav-item">
+              <button class="btn-custom btn" type="button" onclick="window.location.href='cart.html';">
+                  <i class="bi-cart-fill me-2"></i>
+                  Cart
+                  <span id="cart-num" class="badge bg-dark text-white ms-2 rounded-pill">0</span>
+              </button>
+          </form>
+          <form class="d-flex nav-item navbar-nav">
+              <li id="navbar-change" class="nav-item dropdown btn-custom btn d-flex p-0">
+            </li>
+        </form>
+      </div>
+  </div>
+</nav>
+
+<div class="container py-5 d-flex justify-content-center">
+<section class="card mb-4 col-md-8">
+  <div class="card-header">
+    <h2>Create Product</h2>
+  </div>
+
+  <div class="card-body m-3">
+    <div class="row">
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Product Name</label>
+          <input type="text" class="form-control mb-2" id="product-name">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Product Price</label>
+          <input type="text" class="form-control mb-2" id="product-price" placeholder="$0.00">
+        </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Product Category ID</label>
+            <input type="text" class="form-control mb-2" id="product-category">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Product Brand ID</label>
+            <input type="text" class="form-control mb-2" id="brand">
+          </div>
+
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Sex Category</label>
+            <input type="text" class="form-control mb-2" id="sex" placeholder="Male or Female">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Product Color</label>
+            <input type="text" class="form-control mb-2" id="color" placeholder="Black, Brown, Beige, etc...">
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Product Image</label>
+            <input type="file" class="form-control mb-2" id="image">
+          </div>
+      </form>
+      <div class="d-flex justify-content-center align-items-center">
+        <button onclick="submitT();" class="btn btn-dark btn-lg">Submit</button>
+      </div> 
+    </div>
+  </div>
+
+</div>
+  </div>
+</section>
+</div>
+
+<footer class="py-5 mt-5 bg-dark">
+  <div class="container">
+      <p class="m-0 text-center text-white">Copyright © Software Engineering Group 22</p>
+  </div>
+</footer>
+</body>
+<script>
+  async function submitT(){
+    const product_name = document.querySelector("#product-name").value.trim();
+    const color = document.querySelector("#color").value.trim();
+    const price = parseFloat(document.querySelector("#product-price").value.trim()).toFixed(2);
+    const brand_id = parseInt(document.querySelector("#brand").value.trim());
+    const category_id = parseInt(document.querySelector("#product-category").value.trim());
+    const sexCategory = document.querySelector("#sex").value.trim();
+    const rating = 0;
+    const stockQTY = 10;
+    var imageurl = document.querySelector("#image").value.split("\\");
+    const image = imageurl[imageurl.length-1];
+
+    var db_response;
+        const response = await fetch('/api/products/', {
+            method: 'post',
+            body: JSON.stringify({
+                product_name,
+                price,
+                color,
+                brand_id,
+                category_id,
+                rating,
+                stockQTY,
+                sexCategory,
+                image
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        if(response.ok){
+          console.log(response.json());
+          document.location.replace('/');
+        }
+        else{
+          alert(response.statusText);
+        }
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/javascript/nav-bar.js"></script>
+<script>
+
+ 
+
+</script>
+</html>

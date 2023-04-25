@@ -11,10 +11,8 @@ async function signupFormHandler(event) {
     const last_name = document.querySelector("#lname").value.trim();
     const email = document.querySelector("#email").value.trim();
     const password = document.querySelector("#passwrd").value.trim();
-    const phnum = document.querySelector("#phnum").value.trim();
-    const address = document.querySelector("#addr").value.trim();
-
-    if (first_name && last_name && email && password && phnum && address) {
+    var db_response;
+    if (first_name && last_name && email && password) {
         const response = await fetch('/api/customers/', {
             method: 'post',
             body: JSON.stringify({
@@ -22,17 +20,13 @@ async function signupFormHandler(event) {
                 last_name,
                 email,
                 password,
-                address
             }),
             headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/');
-        }
-        else {
-            alert(response.statusText);
-        }
+        })
+        .then(response=>response.json())
+        .then(data=> db_response = data);
+        localStorage.setItem("logged_in",db_response.id);
+        document.location.replace('/');
     }
 }
 
