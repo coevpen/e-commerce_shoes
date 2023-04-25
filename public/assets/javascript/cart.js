@@ -14,7 +14,7 @@ async function getCart(){
       .then(response => response.json())
       .then(data => db_response = data);
       fillPage(db_response, s);
-      document.getElementById("price-full").innerHTML = parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText);
+      document.getElementById("price-full").innerHTML = ((parseFloat(document.getElementById("price-products").innerText) * 0.0825 + parseFloat(document.getElementById("price-products").innerText))).toFixed(2);
       localStorage.setItem("price",document.getElementById("price-products").innerText);
     });
     

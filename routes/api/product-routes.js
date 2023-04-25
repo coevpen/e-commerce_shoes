@@ -117,7 +117,7 @@ router.get('/rating', (req, res) => {
   });
 });
 
-router.get('/price', (req, res) => {
+router.get('/priceasc', (req, res) => {
   Product.findAll({
     include: [
     {
@@ -130,6 +130,33 @@ router.get('/price', (req, res) => {
     }
   ],
   order:[["price","ASC"]]
+  })
+  .then(productInfo => {
+    if(!productInfo){
+      res.status(404).json({ message: 'No products found. '});
+      return;
+    }
+    res.json(productInfo);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+router.get('/pricedesc', (req, res) => {
+  Product.findAll({
+    include: [
+    {
+      model: Category,
+      attributes: [ 'category_name' ]
+    },
+    {
+      model: Brand,
+      attributes: ['brand_name']
+    }
+  ],
+  order:[["price","DESC"]]
   })
   .then(productInfo => {
     if(!productInfo){

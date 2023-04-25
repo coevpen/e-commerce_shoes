@@ -72,19 +72,27 @@
   <div class="card-body m-3">
     <div class="row">
       <div class="col-sm-3">
-        <p class="mb-0">Full Name</p>
+        <p class="mb-0 d-inline">Full Name</p>
+        <i class="bi mx-1 bi-pen cart-x-btn" onclick="editName();"></i>
       </div>
-      <div class="col-sm-9">
-        <p class="text-muted mb-0" id="name"></p>
+      <div class="col-sm-7">
+        <input style="border:none; background-color: white;" type="text" class="text-muted mb-0 d-inline" id="name" disabled></p>
+    </div>
+    <div class="col-sm-2">
+      <h2><i id="name-check" onclick="submitChange();" class="bi cart-x-btn bi-check" hidden></i></h2>
     </div>
     <hr class="mt-1">
   </div>
 <div class="row">
   <div class="col-sm-3">
-    <p class="mb-0">Email</p>
+    <p class="mb-0 d-inline">Email</p>
+    <i class="bi mx-1 bi-pen cart-x-btn" onclick="editEmail();"></i>
   </div>
-  <div class="col-sm-9">
-    <p class="text-muted mb-0" id="email"></p>
+  <div class="col-sm-7">
+    <input style="border: none; background-color: white;" class="text-muted mb-0" id="email" disabled></p>
+</div>
+<div class="col-sm-2">
+  <h2><i id="email-check" onclick="submitChange();" class=" cart-x-btn bi bi-check" hidden></i></h2>
 </div>
 <hr class="mt-1">
 </div>
@@ -102,14 +110,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/javascript/nav-bar.js"></script>
 <script>
+  function editName(){
+    document.getElementById("name").disabled=false;
+    document.getElementById("name-check").hidden=false;
+  }
+
+
+  async function submitChange(){
+    document.getElementById("name").disabled=true;
+    document.getElementById("name-check").hidden=true;
+    document.getElementById("email").disabled=true;
+    document.getElementById("email-check").hidden=true;
+    var x = document.getElementById("name").value.split(" ");
+    var y = document.getElementById("email").value;
+    var z = localStorage.getItem("logged_in");
+    const response = await fetch(`/api/customers/${z}`,{
+      method:"put",
+      headers: {
+      "Content-Type": "application/json"
+      },
+      body:JSON.stringify({email:y, first_name: x[0], last_name: x[1]})
+    })
+    .then(response => response.json())
+    .then(data=>console.log(data));
+    location.reload();
+  }
+
+
+
+  function editEmail(){
+    document.getElementById("email").disabled=false;
+    document.getElementById("email-check").hidden=false;
+  }
   async function findCustomer(){
     var db_response;
     const response = await fetch('/api/customers/'+localStorage.getItem("logged_in"))
     .then(response=>response.json())
     .then(data=>db_response = data);
     console.log(db_response);
-    document.getElementById("email").innerText=db_response.email;
-    document.getElementById("name").innerText=db_response.first_name + " " + db_response.last_name;
+    document.getElementById("email").value=db_response.email;
+    document.getElementById("name").value=db_response.first_name + " " + db_response.last_name;
   }
   findCustomer();
 
