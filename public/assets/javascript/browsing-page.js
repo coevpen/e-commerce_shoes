@@ -21,13 +21,29 @@ async function fillPage(page_num){
         console.log(element.category.category_name);
         console.log(localStorage.getItem("type"));
         if(localStorage.getItem("type") === element.category.category_name){
-          proper_response.push(element);
+          if(localStorage.getItem("item-color")!=="none"){
+            if(localStorage.getItem("item-color") === element.color){
+              proper_response.push(element);
+            }
+          }
+          else{
+            proper_response.push(element);
+          }
         }
       });
     }else{
-      db_response.forEach(element => {
+      if(localStorage.getItem("item-color")!=="none"){
+        db_response.forEach(element => {
+          if(localStorage.getItem("item-color")=== element.color){
+            proper_response.push(element);
+          }
+        });
+      }
+      else{
+        db_response.forEach(element => {
           proper_response.push(element);
-      });
+        });
+      }
     }
     proper_response.slice(slice_start, slice_end).forEach(item => {
       createItem(item);
@@ -45,19 +61,35 @@ async function fillPage(page_num){
   var slice_start = (page_num-1) * 20;
   var slice_end = (page_num * 20);
   var proper_response = [];
-    if(localStorage.getItem("type")!=="none"){
+  if(localStorage.getItem("type")!=="none"){
+    db_response.forEach(element => {
+      console.log(element.category.category_name);
+      console.log(localStorage.getItem("type"));
+      if(localStorage.getItem("type") === element.category.category_name){
+        if(localStorage.getItem("item-color")!=="none"){
+          if(localStorage.getItem("item-color") === element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
+      }
+    });
+  }else{
+    if(localStorage.getItem("item-color")!=="none"){
       db_response.forEach(element => {
-        console.log(element.category.category_name);
-        console.log(localStorage.getItem("type"));
-        if(localStorage.getItem("type") === element.category.category_name){
+        if(localStorage.getItem("item-color")=== element.color){
           proper_response.push(element);
         }
       });
-    }else{
+    }
+    else{
       db_response.forEach(element => {
-          proper_response.push(element);
+        proper_response.push(element);
       });
     }
+  }
     proper_response.slice(slice_start, slice_end).forEach(item => {
     createItem(item);
   });{
@@ -73,17 +105,35 @@ async function fillPage(page_num){
   var slice_start = (page_num-1) * 20;
   var slice_end = (page_num * 20);
   var proper_response = [];
-    if(localStorage.getItem("type")!=="none"){
+  if(localStorage.getItem("type")!=="none"){
+    db_response.forEach(element => {
+      console.log(element.category.category_name);
+      console.log(localStorage.getItem("type"));
+      if(localStorage.getItem("type") === element.category.category_name){
+        if(localStorage.getItem("item-color")!=="none"){
+          if(localStorage.getItem("item-color") === element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
+      }
+    });
+  }else{
+    if(localStorage.getItem("item-color")!=="none"){
       db_response.forEach(element => {
-        if(localStorage.getItem("type") === element.category.category_name){
+        if(localStorage.getItem("item-color")=== element.color){
           proper_response.push(element);
         }
       });
-    }else{
+    }
+    else{
       db_response.forEach(element => {
-          proper_response.push(element);
+        proper_response.push(element);
       });
     }
+  }
     proper_response.slice(slice_start, slice_end).forEach(item => {
     createItem(item);
   });{
@@ -105,21 +155,50 @@ async function fillPage(page_num){
                       
                         if(localStorage.getItem("type")!=="none"){
                             if(localStorage.getItem("type") === element.category.category_name){
-                              proper_response.push(element);
+                              if(localStorage.getItem("item-color")!=="none"){  
+                                if(localStorage.getItem("item-color")===element.color){
+                                  proper_response.push(element);
+                                }
+                              }
+                              else{
+                                proper_response.push(element);
+                              }
                             }
                         }
                         else{
+                          if(localStorage.getItem("item-color")!=="none"){  
+                            if(localStorage.getItem("item-color")===element.color){
+                              proper_response.push(element);
+                            }
+                          }
+                          else{
                             proper_response.push(element);
+                          }
+                            
                         }
                 }
                 else if(localStorage.getItem("category")==="men" && element.sexCategory==="male"){
                   if(localStorage.getItem("type")!=="none"){
                     if(localStorage.getItem("type") === element.category.category_name){
+                      if(localStorage.getItem("item-color")!=="none"){  
+                        if(localStorage.getItem("item-color")===element.color){
+                          proper_response.push(element);
+                        }
+                      }
+                      else{
+                        proper_response.push(element);
+                      }
+                    }
+                }
+                  else if(localStorage.getItem("type") === "none"){
+                    if(localStorage.getItem("item-color")!=="none"){  
+                      if(localStorage.getItem("item-color")===element.color){
+                        proper_response.push(element);
+                      }
+                    }
+                    else{
                       proper_response.push(element);
                     }
-                  }
-                  else if(localStorage.getItem("type") === "none"){
-                      proper_response.push(element);
                   }
                 }
             });}
@@ -127,13 +206,27 @@ async function fillPage(page_num){
         if(localStorage.getItem("type")!=="none"){
           db_response.forEach(element => {
             if(localStorage.getItem("type") === element.category.category_name){
-              proper_response.push(element);
+              if(localStorage.getItem("item-color")!=="none"){  
+                if(localStorage.getItem("item-color")===element.color){
+                  proper_response.push(element);
+                }
+              }
+              else{
+                proper_response.push(element);
+              }
             }
           });
           }
           else if(localStorage.getItem("type") === "none"){
             db_response.forEach(element => {
-              proper_response.push(element);
+              if(localStorage.getItem("item-color")!=="none"){  
+                if(localStorage.getItem("item-color")===element.color){
+                  proper_response.push(element);
+                }
+              }
+              else{
+                proper_response.push(element);
+              }
           });
       }
       }
@@ -156,21 +249,50 @@ async function fillPage(page_num){
                 
                   if(localStorage.getItem("type")!=="none"){
                       if(localStorage.getItem("type") === element.category.category_name){
-                        proper_response.push(element);
+                        if(localStorage.getItem("item-color")!=="none"){  
+                          if(localStorage.getItem("item-color")===element.color){
+                            proper_response.push(element);
+                          }
+                        }
+                        else{
+                          proper_response.push(element);
+                        }
                       }
                   }
                   else{
+                    if(localStorage.getItem("item-color")!=="none"){  
+                      if(localStorage.getItem("item-color")===element.color){
+                        proper_response.push(element);
+                      }
+                    }
+                    else{
                       proper_response.push(element);
+                    }
+                      
                   }
           }
           else if(localStorage.getItem("category")==="men" && element.sexCategory==="male"){
             if(localStorage.getItem("type")!=="none"){
               if(localStorage.getItem("type") === element.category.category_name){
+                if(localStorage.getItem("item-color")!=="none"){  
+                  if(localStorage.getItem("item-color")===element.color){
+                    proper_response.push(element);
+                  }
+                }
+                else{
+                  proper_response.push(element);
+                }
+              }
+          }
+            else if(localStorage.getItem("type") === "none"){
+              if(localStorage.getItem("item-color")!=="none"){  
+                if(localStorage.getItem("item-color")===element.color){
+                  proper_response.push(element);
+                }
+              }
+              else{
                 proper_response.push(element);
               }
-            }
-            else if(localStorage.getItem("type") === "none"){
-                proper_response.push(element);
             }
           }
       });}
@@ -178,13 +300,27 @@ else{
   if(localStorage.getItem("type")!=="none"){
     db_response.forEach(element => {
       if(localStorage.getItem("type") === element.category.category_name){
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
       }
     });
     }
     else if(localStorage.getItem("type") === "none"){
       db_response.forEach(element => {
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
     });
 }
 }
@@ -208,21 +344,50 @@ else{
                 
                   if(localStorage.getItem("type")!=="none"){
                       if(localStorage.getItem("type") === element.category.category_name){
-                        proper_response.push(element);
+                        if(localStorage.getItem("item-color")!=="none"){  
+                          if(localStorage.getItem("item-color")===element.color){
+                            proper_response.push(element);
+                          }
+                        }
+                        else{
+                          proper_response.push(element);
+                        }
                       }
                   }
                   else{
+                    if(localStorage.getItem("item-color")!=="none"){  
+                      if(localStorage.getItem("item-color")===element.color){
+                        proper_response.push(element);
+                      }
+                    }
+                    else{
                       proper_response.push(element);
+                    }
+                      
                   }
           }
           else if(localStorage.getItem("category")==="men" && element.sexCategory==="male"){
             if(localStorage.getItem("type")!=="none"){
               if(localStorage.getItem("type") === element.category.category_name){
+                if(localStorage.getItem("item-color")!=="none"){  
+                  if(localStorage.getItem("item-color")===element.color){
+                    proper_response.push(element);
+                  }
+                }
+                else{
+                  proper_response.push(element);
+                }
+              }
+          }
+            else if(localStorage.getItem("type") === "none"){
+              if(localStorage.getItem("item-color")!=="none"){  
+                if(localStorage.getItem("item-color")===element.color){
+                  proper_response.push(element);
+                }
+              }
+              else{
                 proper_response.push(element);
               }
-            }
-            else if(localStorage.getItem("type") === "none"){
-                proper_response.push(element);
             }
           }
       });}
@@ -230,13 +395,27 @@ else{
   if(localStorage.getItem("type")!=="none"){
     db_response.forEach(element => {
       if(localStorage.getItem("type") === element.category.category_name){
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
       }
     });
     }
     else if(localStorage.getItem("type") === "none"){
       db_response.forEach(element => {
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
     });
 }
 }
@@ -260,21 +439,50 @@ else{
                 
                   if(localStorage.getItem("type")!=="none"){
                       if(localStorage.getItem("type") === element.category.category_name){
-                        proper_response.push(element);
+                        if(localStorage.getItem("item-color")!=="none"){  
+                          if(localStorage.getItem("item-color")===element.color){
+                            proper_response.push(element);
+                          }
+                        }
+                        else{
+                          proper_response.push(element);
+                        }
                       }
                   }
                   else{
+                    if(localStorage.getItem("item-color")!=="none"){  
+                      if(localStorage.getItem("item-color")===element.color){
+                        proper_response.push(element);
+                      }
+                    }
+                    else{
                       proper_response.push(element);
+                    }
+                      
                   }
           }
           else if(localStorage.getItem("category")==="men" && element.sexCategory==="male"){
             if(localStorage.getItem("type")!=="none"){
               if(localStorage.getItem("type") === element.category.category_name){
+                if(localStorage.getItem("item-color")!=="none"){  
+                  if(localStorage.getItem("item-color")===element.color){
+                    proper_response.push(element);
+                  }
+                }
+                else{
+                  proper_response.push(element);
+                }
+              }
+          }
+            else if(localStorage.getItem("type") === "none"){
+              if(localStorage.getItem("item-color")!=="none"){  
+                if(localStorage.getItem("item-color")===element.color){
+                  proper_response.push(element);
+                }
+              }
+              else{
                 proper_response.push(element);
               }
-            }
-            else if(localStorage.getItem("type") === "none"){
-                proper_response.push(element);
             }
           }
       });}
@@ -282,13 +490,27 @@ else{
   if(localStorage.getItem("type")!=="none"){
     db_response.forEach(element => {
       if(localStorage.getItem("type") === element.category.category_name){
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
       }
     });
     }
     else if(localStorage.getItem("type") === "none"){
       db_response.forEach(element => {
-        proper_response.push(element);
+        if(localStorage.getItem("item-color")!=="none"){  
+          if(localStorage.getItem("item-color")===element.color){
+            proper_response.push(element);
+          }
+        }
+        else{
+          proper_response.push(element);
+        }
     });
 }
 }

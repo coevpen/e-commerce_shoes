@@ -120,47 +120,47 @@
                     <button type="button" class="collapsible">Color</button>
                     <div class="content">
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Red');">
                             <label for="color1">Red</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Orange');">
                             <label for="color2">Orange</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Yellow');">
                             <label for="color3">Yellow</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Green');">
                             <label for="color4">Green</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color"monclick="localStorage.setItem('item-color','Blue');">
                             <label for="color5">Blue</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Purple');">
                             <label for="color6">Purple</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Pink');">
                             <label for="color7">Pink</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Black');">
                             <label for="color8">Black</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','White');">
                             <label for="color9">White</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Beige');">
                             <label for="color10">Beige</label>
                         </div>
                         <div>
-                            <input type="radio" name="color">
+                            <input type="radio" name="color" onclick="localStorage.setItem('item-color','Brown');">
                             <label for="color11">Brown</label>
                         </div>
                     </div>
@@ -208,6 +208,7 @@
     function setSortBy() {
         localStorage.setItem('sortby', 'none');
         localStorage.setItem('type','none');
+        localStorage.setItem('item-color','none');
     }
     window.onload = setSortBy();
 
